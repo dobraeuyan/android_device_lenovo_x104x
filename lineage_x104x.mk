@@ -1,15 +1,18 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-$(call inherit-product, device/lenovo/x104f/x104f.mk)
-
 $(call inherit-product, device/qcom/msm8909-common/ril.mk)
 $(call inherit-product, vendor/qcom/msm8909-common/msm8909-ril-vendor.mk)
+
+$(call inherit-product, device/lenovo/x104f/x104f.mk)
 
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 PRODUCT_PACKAGES += \
     Msm8909OverlayLteData \
     Msm8909OverlayLteSystemUI
+
+PRODUCT_COPY_FILES += \
+    vendor/lenovo/x104f/proprietary/vendor/lib/libtime_genoff.so:$(TARGET_COPY_OUT_VENDOR)/lib/libtime_genoff.so
 
 PRODUCT_CHARACTERISTICS := tablet
 
